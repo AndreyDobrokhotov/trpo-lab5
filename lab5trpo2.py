@@ -27,7 +27,14 @@ def calculate_triangle_perimeter(a, b, c):
     :return: периметр треугольника
     """
     return a + b + c
-
+def determine_triangle_type(a, b, c):
+    """Определяет тип треугольника по сторонам."""
+    if a == b == c:
+        return "равносторонний"
+    elif a == b or b == c or a == c:
+        return "равнобедренный"
+    else:
+        return "разносторонний"
 # Пример использования:
 if __name__ == "__main__":
     a, b, c = 3, 4, 5  # Пример сторон (египетский треугольник)
@@ -35,6 +42,8 @@ if __name__ == "__main__":
     try:
         area = calculate_triangle_area(a, b, c)
         perimeter = calculate_triangle_perimeter(a, b, c)
+        triangle_type = determine_triangle_type(a, b, c)
+        print(f"Тип треугольника: {triangle_type}")
         print(f"Площадь треугольника: {area:.2f}")
         print(f"Периметр треугольника: {perimeter:.2f}")
     except ValueError as e:
